@@ -1,8 +1,10 @@
 package com.reactnativenavigation.controllers;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
+import android.view.WindowManager;
 
 import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.Promise;
@@ -38,6 +40,11 @@ class ModalController implements ScreenStackContainer, Modal.OnModalDismissedLis
 
     void showModal(ScreenParams screenParams) {
         Modal modal = new Modal(activity, this, screenParams);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            modal.getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }
+
         modal.show();
         stack.add(modal);
     }
