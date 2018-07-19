@@ -90,6 +90,11 @@ UIViewController *rightViewController = nil;
     if (leftDrawerWidth) {
         self.maximumLeftDrawerWidth = self.view.bounds.size.width * MIN(1, (leftDrawerWidth.floatValue/100.0));
     }
+
+    NSNumber *leftDrawerWidthInPixels = self.drawerStyle[@"leftDrawerWidthInPixels"];
+    if (leftDrawerWidthInPixels) {
+        self.maximumLeftDrawerWidth = leftDrawerWidthInPixels.floatValue;
+    }
     
     NSNumber *rightDrawerWidth = self.drawerStyle[@"rightDrawerWidth"];
     if (rightDrawerWidth) {
