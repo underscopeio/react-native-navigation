@@ -412,6 +412,17 @@ export interface OptionsTopBarButton {
   showAsAction?: 'ifRoom' | 'withText' | 'always' | 'never';
 }
 
+export interface OptionsTopBarButtonStyle {
+  fontFamily?: FontFamily;
+  fontSize?: number;
+  text?: string;
+  color?: Color;
+  disabledColor?: Color;
+  icon?: ImageRequireSource;
+  iconInsets?: Insets;
+  enabled?: boolean;
+}
+
 export interface OptionsTopBar {
   /**
    * Show or hide the top bar
@@ -426,13 +437,31 @@ export interface OptionsTopBar {
    */
   hideOnScroll?: boolean;
   /**
-   * Change button colors in the top bar
+   * Change left butto colors in the top bar
+   */
+  leftButtonColor?: Color;
+  /**
+   * Change right button color in the top bar
    */
 
-  leftButtonColor?: Color;
   rightButtonColor?: Color;
+  /**
+   * Change left button disabled color in the top bar
+   */
+
   leftButtonDisabledColor?: Color;
+  /**
+   * Change right button disabled color in the top bar
+   */
   rightButtonDisabledColor?: Color;
+  /**
+   * Left button style configuration
+   */
+  leftButtonStyle?: OptionsTopBarButtonStyle;
+  /**
+   * Right button style configuration
+   */
+  rightButtonStyle?: OptionsTopBarButtonStyle;
   /**
    * Draw behind the navbar
    */
